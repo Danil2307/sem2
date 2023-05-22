@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('header.html.twig') }}
+
+    <section class="container mainPage">
+        <div class="row">
+            {% for question in questions | reverse %}
+                {% if question.flag %}
+                <div class="col-sm-6 mb-3">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            #{{ question.category }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ question.title }}</h5>
+                            <p class="card-text">{{ question.answers|length }} Ответов</p>
+                            <a href="/questions/{{ question.id }}" class="btn btn-primary">Посмотреть</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {{ question.date|date }}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+
+
+{#{% if app.user %}#}
+{#        <nav class="menu-mobile header__menu">#}
+{#            {% if is_granted('ROLE_ADMIN') %}#}
+{#                <a href="/admin" target="_blank" class="btn btn-md btn-outline-info">Админка</a>#}
+{#            {% endif %}#}
+{#            <a href="/publicNews" class="menu-mobile__item">Добавить новость</a>#}
+{#            <a href="/logout" class="menu-pc__item">Выход</a>#}
+{#        </nav>#}
+{#{% else %}#}
+{#    <nav class="menu-mobile header__menu">#}
+{#        <a href="/register" class="menu-mobile__item">Регистрация</a>#}
+{#        <a href="/login" class="menu-pc__item">Вход</a>#}
+{#    </nav>#}
+{#{% endif %}#}
+
+<header class="header" style = "background:#f2f7f6;">
+    <div class="header__wrapper">
+        <div class="menu-wrapper">
+            <div class="hamburger-menu"></div>
+        </div>
+        <a href="/" class="header__logo">
+            QA
+        </a>
+
+        {% if app.user %}
+            Приветствую, {{ app.user.email }}
+                <nav class="menu-pc header__menu">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="/admin" target="_blank" class="menu-pc__item">Админка</a>
+                    {% endif %}
+                    <a href="/publicQuestion" class="btn btn-primary">Добавить вопрос</a>
+                    <a href="/logout" class="btn btn-primary">Выйти</a>
+                </nav>
+        {% else %}
+            <nav class="menu-pc header__menu">
+                <a href="/register" class="btn btn-primary" id="btn-registration">Регистрация</a>
+                <a href="/login" class="btn btn-primary" id="btn-authorization">Вход</a>
+            </nav>
+        {% endif %}
+    </div>
+</header>

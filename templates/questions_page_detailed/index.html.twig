@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block title %}Вопрос{% endblock %}
+{% block body %}
+    {{ include('header.html.twig') }}
+    <section class="container question-page">
+        <div class="card text-center">
+            <div class="card-header">
+                {{question.user.name}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{question.title}}</h5>
+                <p class="card-text">{{question.text}}</p>  
+            </div>
+            <div class="card-footer text-muted">
+                <div>#{{question.category}}</div>
+                <div>{{question.date|date("H:i d.m.Y")}}</div>
+            </div>
+        </div>
+
+        <div class="answers">
+            <h1>Ответы на вопрос ({{question.answers|length}})</h1>
+            <hr class="answers-hr">
+
+
+            {% if app.user %}
+                {{ include('public_answer/index.html.twig') }}
+            {% endif %}
+            {% for answer in question.answers %}
+            <div class="card mt-3">
+                <div class="card-header">
+                    {{answer.user.name}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{answer.date|date("H:i d.m.Y")}}</h5>
+                    <p class="card-text">{{answer.text}}</p>
+                </div>
+            </div>
+                <hr>
+            {% endfor %}
+        </div>
+
+
+    </section>
+{% endblock %}

@@ -1,0 +1,63 @@
+.form-container{
+    max-width: 700px;
+    margin-inline: auto;
+    margin-top: 150px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.form-title{
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form input{
+    width: 100%;
+    border: 1px solid var(--text-color-dark);
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 24px;
+    background: white;
+}
+
+.form input:focus, .form textarea:focus{
+    outline: 2px solid var(--text-color-dark);
+}
+
+.form > div{
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.form label{
+    white-space: nowrap;
+}
+
+.form label + input{
+    width: 20px !important;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.form textarea{
+    width: 100%;
+    border: 1px solid var(--text-color-dark);
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 24px;
+    background: white;
+}
+
+.form-publicAnswer{
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: 0;
+}
